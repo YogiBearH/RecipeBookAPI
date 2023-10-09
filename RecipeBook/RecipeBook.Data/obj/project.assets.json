@@ -288,19 +288,6 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
-      },
-      "RecipeBook.Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
-        },
-        "compile": {
-          "bin/placeholder/RecipeBook.Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RecipeBook.Data.dll": {}
-        }
       }
     }
   },
@@ -722,16 +709,11 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "RecipeBook.Data/1.0.0": {
-      "type": "project",
-      "path": "../RecipeBook.Data/RecipeBook.Data.csproj",
-      "msbuildProject": "../RecipeBook.Data/RecipeBook.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "RecipeBook.Data >= 1.0.0"
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.11"
     ]
   },
   "packageFolders": {
@@ -740,11 +722,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook\\RecipeBook.csproj",
-      "projectName": "RecipeBook",
-      "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook\\RecipeBook.csproj",
+      "projectUniqueName": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj",
+      "projectName": "RecipeBook.Data",
+      "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj",
       "packagesPath": "C:\\Users\\Hieu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook\\obj\\",
+      "outputPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -760,11 +742,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj": {
-              "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -776,6 +754,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "target": "Package",
+            "version": "[7.0.11, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -788,9 +772,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
