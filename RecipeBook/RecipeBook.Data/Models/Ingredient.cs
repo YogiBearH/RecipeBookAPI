@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RecipeBook.Data.Models
 {
-    internal class Ingredient
+    public class Ingredient
     {
+        public string IngredientName { get; set; }
     }
 }

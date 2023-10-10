@@ -11,6 +11,7 @@ namespace RecipeBook.Data.Models
     {
         [Key]
         public int Id { get; set; }
-        public Data
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
     }
 }

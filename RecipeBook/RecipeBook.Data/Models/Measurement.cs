@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RecipeBook.Data.Models
 {
-    internal class Measurement
+    public class Measurement
     {
+        public string MeasurementName { get; set; }
     }
 }
