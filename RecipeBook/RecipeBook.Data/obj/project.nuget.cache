@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jTSFxL5R4xwOVzidEqHZjixx0lisOvQ4a3wkVRO5v8B/oIMRHTdfQpjLm2dUJYiCF3121e3o5/rhvSiK2rPS+Q==",
+  "dgSpecHash": "2A6rUxvVao6RtUEZ9eDJ0xGdu+u0L62I7NCVgf6BCl34GlPrcohJQyLg8++tsZEv0xQiRuXxGz6B0DlopNwJvw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook\\RecipeBook.csproj",
+  "projectFilePath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hieu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
@@ -10,6 +10,7 @@
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.11\\microsoft.entityframeworkcore.analyzers.7.0.11.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.11\\microsoft.entityframeworkcore.design.7.0.11.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.11\\microsoft.entityframeworkcore.relational.7.0.11.nupkg.sha512",
+    "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.11\\microsoft.entityframeworkcore.tools.7.0.11.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
