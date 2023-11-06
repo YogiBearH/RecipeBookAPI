@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using RecipeBook.Data.Context;
+
 namespace RecipeBook
 {
     public class Program
@@ -9,8 +12,11 @@ namespace RecipeBook
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            var app = builder.Build();
+            builder.Services.AddDbContext<Ctx>(
+                o => o.UseNpgsql(builder.Configuration.GetConnectionString("RecipeDb")));
 
+            var app = builder.Build();
+            
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
