@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecipeBook.Data.Models
 {
-    public class Ingredient
+    public class Ingredient : BaseEntity
     {
         public string IngredientName { get; set; }
     }

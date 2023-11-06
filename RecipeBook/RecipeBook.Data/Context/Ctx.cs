@@ -13,15 +13,9 @@ namespace RecipeBook.Data.Context
         public Ctx(DbContextOptions<Ctx> options) :
             base(options)
         { }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.UseSerialColumns();
-        }
-
-        public override Task<int> SaveChangesAsync(CancellationToken cancellation = new CancellationToken())
-        {
-            return base.SaveChangesAsync(cancellation);
         }
 
         public DbSet<Recipe> Recipes { get; set;}
@@ -29,5 +23,11 @@ namespace RecipeBook.Data.Context
         public DbSet<Quantity> Quantity { get; set; }
         public DbSet<RecipeStep> RecipeSteps { get; set; }
         public DbSet<Measurement> Measurements { get; set; }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellation = new CancellationToken())
+        {
+            return base.SaveChangesAsync(cancellation);
+        }
+
     }
 }

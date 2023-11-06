@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RecipeBook.Data.Models
 {
-    public class RecipeStep
+    public class RecipeStep : BaseEntity
     {
         [Column("RecipeId")]
         public int RecipeId { get; set; }
@@ -22,7 +22,7 @@ namespace RecipeBook.Data.Models
                 if (ReferenceEquals(x, null)) return false;
                 if (ReferenceEquals(y, null)) return false;
                 if (x.GetType() != y.GetType()) return false;
-                return x.RecipeId == y.RecipeId && x.StepNumber == y.StepNumber;
+                return x.RecipeId == y.RecipeId && x.StepNumber == y.StepNumber && x.StepDescription == y.StepDescription;
             }
 
             public int GetHashCode(RecipeStep obj)

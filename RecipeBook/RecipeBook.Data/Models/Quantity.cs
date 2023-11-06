@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RecipeBook.Data.Models
 {
-    public class Quantity
+    public class Quantity : BaseEntity
     {
         [Column("RecipeId")]
         public int RecipeId { get; set; }
@@ -25,12 +25,12 @@ namespace RecipeBook.Data.Models
                 if (ReferenceEquals(x, null)) return false;
                 if (ReferenceEquals(y, null)) return false;
                 if (x.GetType() != y.GetType()) return false;
-                return x.RecipeId == y.RecipeId && x.IngredientId == y.IngredientId && x.MeasurementId == y.MeasurementId;
+                return x.RecipeId == y.RecipeId && x.IngredientId == y.IngredientId && x.MeasurementId == y.MeasurementId && x.Amount == y.Amount;
             }
 
             public int GetHashCode(Quantity obj)
             {
-                return HashCode.Combine(obj.RecipeId, obj.IngredientId, obj.MeasurementId);
+                return HashCode.Combine(obj.RecipeId, obj.IngredientId, obj.MeasurementId, obj.Amount);
             }
         }
         public static IEqualityComparer<Quantity> RecipeIngredientMeasurementIdComparer { get; } = new RecipeIngredientMeasurementIdEqualityComparer();
