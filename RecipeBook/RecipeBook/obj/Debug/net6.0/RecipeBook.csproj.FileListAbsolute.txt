@@ -54,3 +54,4 @@ C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\RecipeBook.Data.pdb
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\obj\Debug\net6.0\RecipeBook.csproj.AssemblyReference.cache
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\obj\Debug\net6.0\RecipeBook.csproj.CopyComplete
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\obj\Debug\net6.0\RecipeBook.MvcApplicationPartsAssemblyInfo.cs

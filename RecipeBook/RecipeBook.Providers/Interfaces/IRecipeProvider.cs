@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeBook.Data.Interfaces
+namespace RecipeBook.Providers.Interfaces
 {
-    public interface IRecipeRepository
+    public interface IRecipeProvider
     {
         Task<IEnumerable<Recipe>> GetRecipesAsync();
         Task<Recipe> GetRecipeById(int id);

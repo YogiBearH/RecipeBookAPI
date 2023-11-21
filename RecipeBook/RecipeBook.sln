@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBook", "RecipeBook\RecipeBook.csproj", "{2CF137E8-2E1C-47A2-8827-6258E092559A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.Data", "RecipeBook.Data\RecipeBook.Data.csproj", "{73540F9C-0085-42DE-B09E-6DA99ED09191}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBook.Data", "RecipeBook.Data\RecipeBook.Data.csproj", "{73540F9C-0085-42DE-B09E-6DA99ED09191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.Providers", "RecipeBook.Providers\RecipeBook.Providers.csproj", "{1F8AB6D4-9262-4879-A9BE-85D676FE10D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{73540F9C-0085-42DE-B09E-6DA99ED09191}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73540F9C-0085-42DE-B09E-6DA99ED09191}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73540F9C-0085-42DE-B09E-6DA99ED09191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F8AB6D4-9262-4879-A9BE-85D676FE10D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F8AB6D4-9262-4879-A9BE-85D676FE10D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F8AB6D4-9262-4879-A9BE-85D676FE10D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F8AB6D4-9262-4879-A9BE-85D676FE10D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
