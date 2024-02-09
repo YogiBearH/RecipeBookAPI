@@ -11,7 +11,7 @@ namespace RecipeBook.Middleware
 
         }
 
-        public override async Task InvokeaAsync(HttpContext context)
+        public override async Task InvokeAsync(HttpContext context)
         {
             try
             {

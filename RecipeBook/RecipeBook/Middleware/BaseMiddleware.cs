@@ -4,6 +4,6 @@
     {
         protected readonly RequestDelegate _next;
         protected BaseMiddleware(RequestDelegate next) => _next = next;
-        public async Task InvokeAsync(HttpContent content);
+        public abstract Task InvokeAsync(HttpContext context);
     }
 }

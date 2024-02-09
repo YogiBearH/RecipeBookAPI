@@ -9,6 +9,6 @@ namespace RecipeBook.Middleware
         {
             _log = log;
         }
-        public async override Task InvokeAsync(HttpContent content);
+        public abstract override Task InvokeAsync(HttpContext content);
     }
 }
