@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RecipeBook.Data\RecipeBook.Data.csproj" />
+	<ProjectReference Include="..\RecipeBook.Providers\RecipeBook.Providers.csproj" />
   </ItemGroup>
 
 </Project>

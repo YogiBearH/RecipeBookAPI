@@ -676,6 +676,19 @@
         "runtime": {
           "bin/placeholder/RecipeBook.Data.dll": {}
         }
+      },
+      "RecipeBook.Providers/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "RecipeBook.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RecipeBook.Providers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipeBook.Providers.dll": {}
+        }
       }
     }
   },
@@ -1904,6 +1917,11 @@
       "type": "project",
       "path": "../RecipeBook.Data/RecipeBook.Data.csproj",
       "msbuildProject": "../RecipeBook.Data/RecipeBook.Data.csproj"
+    },
+    "RecipeBook.Providers/1.0.0": {
+      "type": "project",
+      "path": "../RecipeBook.Providers/RecipeBook.Providers.csproj",
+      "msbuildProject": "../RecipeBook.Providers/RecipeBook.Providers.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1912,6 +1930,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.11",
       "Microsoft.Extensions.Logging.Log4Net.AspNetCore >= 7.0.0",
       "RecipeBook.Data >= 1.0.0",
+      "RecipeBook.Providers >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "log4net >= 2.0.15"
     ]
@@ -1945,6 +1964,9 @@
           "projectReferences": {
             "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj": {
               "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj"
+            },
+            "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Providers\\RecipeBook.Providers.csproj": {
+              "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Providers\\RecipeBook.Providers.csproj"
             }
           }
         }
