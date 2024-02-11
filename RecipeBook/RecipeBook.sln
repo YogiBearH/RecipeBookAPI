@@ -4,10 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBook", "RecipeBook\RecipeBook.csproj", "{2CF137E8-2E1C-47A2-8827-6258E092559A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F8AB6D4-9262-4879-A9BE-85D676FE10D8} = {1F8AB6D4-9262-4879-A9BE-85D676FE10D8}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBook.Data", "RecipeBook.Data\RecipeBook.Data.csproj", "{73540F9C-0085-42DE-B09E-6DA99ED09191}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.Providers", "RecipeBook.Providers\RecipeBook.Providers.csproj", "{1F8AB6D4-9262-4879-A9BE-85D676FE10D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBook.Providers", "RecipeBook.Providers\RecipeBook.Providers.csproj", "{1F8AB6D4-9262-4879-A9BE-85D676FE10D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
