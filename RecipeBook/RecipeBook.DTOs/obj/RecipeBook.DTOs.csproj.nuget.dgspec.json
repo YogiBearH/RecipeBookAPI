@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj": {}
+    "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.DTOs\\RecipeBook.DTOs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj": {
+    "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.DTOs\\RecipeBook.DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj",
-        "projectName": "RecipeBook.Data",
-        "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.DTOs\\RecipeBook.DTOs.csproj",
+        "projectName": "RecipeBook.DTOs",
+        "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.DTOs\\RecipeBook.DTOs.csproj",
         "packagesPath": "C:\\Users\\Hieu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\obj\\",
+        "outputPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -47,22 +47,6 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.11, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.11, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[7.0.11, )"
             }
           },
           "imports": [

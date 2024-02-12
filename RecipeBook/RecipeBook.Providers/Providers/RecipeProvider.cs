@@ -56,5 +56,15 @@ namespace RecipeBook.Providers.Providers
             newInfo = await _recipeRepository.UpdateRecipeByIdAsync(recipeToUpdate, id);
             return newInfo;
         }
+
+        public async Task DeleteRecipeById(int id)
+        {
+            Recipe recipe = await GetRecipeById(id);
+            
+            if (recipe != null) 
+            {
+                await _recipeRepository.DeleteRecipeById(id);
+            }
+        }
     }
 }

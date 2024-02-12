@@ -13,6 +13,6 @@ namespace RecipeBook.Providers.Interfaces
         Task<Recipe> GetRecipeById(int id);
         Task<Recipe> CreateRecipeAsync(Recipe recipe);
         Task<Recipe> UpdateRecipeByIdAsync(Recipe recipeToUpdate, int id);
-        Task<Recipe> DeleteRecipeById(int id);
+        Task DeleteRecipeById(int id);
     }
 }
