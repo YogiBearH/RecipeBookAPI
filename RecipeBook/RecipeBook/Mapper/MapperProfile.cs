@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using RecipeBook.Data.Models;
-using RecipeBook.DT
+using RecipeBook.DTOs.Recipes;
 
 namespace RecipeBook.Mapper
 {
@@ -8,7 +8,7 @@ namespace RecipeBook.Mapper
     {
         public MapperProfile() 
         {
-            CreateMap<Recipe>
+            CreateMap<Recipe, RecipeDTO>().ReverseMap();
         }
     }
 }
