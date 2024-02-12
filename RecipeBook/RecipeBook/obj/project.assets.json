@@ -713,7 +713,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "13.0.1",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "RecipeBook.Data": "1.0.0"
         },
         "compile": {
           "bin/placeholder/RecipeBook.DTOs.dll": {}
