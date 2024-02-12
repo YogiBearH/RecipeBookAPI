@@ -13,10 +13,10 @@ namespace RecipeBook.Data.Models
         public int PrepTime { get; set; }
         public int CookTime { get; set; }
 
-        public List<RecipeStep> RecipeSteps { get; set; }
-        public List<Ingredient> Ingredients { get; set;}
-        public List<Measurement> Measurements { get; set; }
-        public List<Quantity> Quantity { get; set; }
+        public List<RecipeStep>? RecipeSteps { get; set; }
+        public List<Ingredient>? Ingredients { get; set;}
+        public List<Measurement>? Measurements { get; set; }
+        public List<Quantity>? Quantity { get; set; }
 
         private sealed class ProductEqualityComparer : IEqualityComparer<Recipe>
         {

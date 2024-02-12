@@ -1,0 +1,5 @@
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.Providers\obj\Debug\net6.0\RecipeBook.Providers.csproj.AssemblyReference.cache
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.Providers\obj\Debug\net6.0\RecipeBook.Providers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.Providers\obj\Debug\net6.0\RecipeBook.Providers.AssemblyInfoInputs.cache
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.Providers\obj\Debug\net6.0\RecipeBook.Providers.AssemblyInfo.cs
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.Providers\obj\Debug\net6.0\RecipeBook.Providers.csproj.CoreCompileInputs.cache
