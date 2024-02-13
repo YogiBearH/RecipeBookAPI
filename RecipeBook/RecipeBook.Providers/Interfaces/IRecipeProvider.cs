@@ -1,4 +1,5 @@
 ﻿using RecipeBook.Data.Models;
+using RecipeBook.DTOs.Recipes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace RecipeBook.Providers.Interfaces
 {
     public interface IRecipeProvider
     {
-        Task<IEnumerable<Recipe>> GetRecipesAsync();
-        Task<Recipe> GetRecipeById(int id);
-        Task<Recipe> CreateRecipeAsync(Recipe recipe);
-        Task<Recipe> UpdateRecipeByIdAsync(Recipe recipeToUpdate, int id);
+        Task<IEnumerable<RecipeDTO>> GetRecipesAsync();
+        Task<RecipeDTO> GetRecipeById(int id);
+        Task<RecipeDTO> CreateRecipeAsync(RecipeDTO recipe);
+        Task<RecipeDTO> UpdateRecipeByIdAsync(int id, RecipeDTO updatedRecipe);
         Task DeleteRecipeById(int id);
     }
 }

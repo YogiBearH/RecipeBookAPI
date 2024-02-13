@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,9 @@ namespace RecipeBook.Data.Models
 {
     public class Recipe : BaseEntity
     {
+        [Required]
         public string RecipeName { get; set; }
+        [Required]
         public string Description { get; set; }
         public int PrepTime { get; set; }
         public int CookTime { get; set; }

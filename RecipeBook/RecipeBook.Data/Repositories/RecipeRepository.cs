@@ -42,20 +42,23 @@ namespace RecipeBook.Data.Repositories
             return recipe;
         }
 
-        public async Task<Recipe> UpdateRecipeByIdAsync(Recipe recipeToUpdate, int id)
+        public async Task<Recipe> UpdateRecipeByIdAsync(int id, Recipe updatedRecipe)
         {
-            recipeToUpdate.Id = id;
-            _ctx.Recipes.Update(recipeToUpdate);
+            updatedRecipe.Id = id;
+            _ctx.Recipes.Update(updatedRecipe);
             await _ctx.SaveChangesAsync();
-            return recipeToUpdate;
+            return updatedRecipe;
         }
 
-        public async Task<Recipe> DeleteRecipeById(int id)
+        public async Task DeleteRecipeById(int id)
         {
-            var result = await _ctx.Recipes
+            var recipeToDelete = await _ctx.Recipes
                 .SingleOrDefaultAsync(x => x.Id == id);
-            await _ctx.SaveChangesAsync();
-            return result;
+            if (recipeToDelete != null)
+            {
+                _ctx.Recipes.Remove(recipeToDelete);
+                await _ctx.SaveChangesAsync();
+            }
         }
     }
 }

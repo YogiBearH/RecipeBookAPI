@@ -10,6 +10,7 @@
         "dependencies": {
           "AutoMapper": "13.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "RecipeBook.DTOs": "1.0.0",
           "RecipeBook.Data": "1.0.0"
         },
         "runtime": {
@@ -212,6 +213,16 @@
         "runtime": {
           "RecipeBook.Data.dll": {}
         }
+      },
+      "RecipeBook.DTOs/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "RecipeBook.Data": "1.0.0"
+        },
+        "runtime": {
+          "RecipeBook.DTOs.dll": {}
+        }
       }
     }
   },
@@ -348,6 +359,11 @@
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
     "RecipeBook.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RecipeBook.DTOs/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -72,3 +72,4 @@ C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\RecipeBook.Providers.dll
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\RecipeBook.Providers.pdb
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\RecipeBook.DTOs.pdb
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\obj\Debug\net6.0\RecipeBook.MvcApplicationPartsAssemblyInfo.cs

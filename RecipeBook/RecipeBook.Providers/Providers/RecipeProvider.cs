@@ -2,6 +2,8 @@
 using RecipeBook.Data.Interfaces;
 using RecipeBook.Data.Models;
 using RecipeBook.Providers.Interfaces;
+using AutoMapper;
+using RecipeBook.DTOs.Recipes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,62 +16,61 @@ namespace RecipeBook.Providers.Providers
     {
         private readonly ILogger<RecipeProvider> _logger;
         private readonly IRecipeRepository _recipeRepository;
+        private readonly IMapper _mapper;
 
-        public RecipeProvider(IRecipeRepository recipeRepository, ILogger<RecipeProvider> logger)
+        public RecipeProvider(IRecipeRepository recipeRepository, ILogger<RecipeProvider> logger, IMapper mapper)
         {
             _logger = logger;
             _recipeRepository = recipeRepository;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Recipe>> GetRecipesAsync()
+        public async Task<IEnumerable<RecipeDTO>> GetRecipesAsync()
         {
             IEnumerable<Recipe> recipes = await _recipeRepository.GetRecipesAsync();
-            return recipes;
+            return _mapper.Map<IEnumerable<RecipeDTO>>(recipes);
         }
 
-        public async Task<Recipe> GetRecipeById(int id)
+        public async Task<RecipeDTO> GetRecipeById(int id)
         {
-            Recipe recipe = await _recipeRepository.GetRecipeById(id);
-            return recipe;
+            var recipe = await _recipeRepository.GetRecipeById(id);
+            return _mapper.Map<RecipeDTO>(recipe);
         }
 
-        public async Task<Recipe> CreateRecipeAsync(Recipe recipe)
+        public async Task<RecipeDTO> CreateRecipeAsync(RecipeDTO recipeDTO)
         {
-            Recipe newRecipe = await _recipeRepository.CreateRecipeAsync(recipe);
-            return newRecipe;
+            Recipe recipe = _mapper.Map<Recipe>(recipeDTO);
+            var newRecipe = await _recipeRepository.CreateRecipeAsync(recipe);
+            return _mapper.Map<RecipeDTO>(newRecipe);
         }
 
-        public async Task<Recipe> UpdateRecipeByIdAsync(Recipe recipeToUpdate, int id)
+        public async Task<RecipeDTO> UpdateRecipeByIdAsync(int id, RecipeDTO updatedRecipe)
         {
-            Recipe newInfo;
-            Recipe oldInfo = await _recipeRepository.GetRecipeById(id);
+            Recipe oldRecipe = await _recipeRepository.GetRecipeById(id);
 
-            if (oldInfo == null || oldInfo == default) 
+            if (oldRecipe == null) 
             {
-                throw new Exception("Recipe not found");
+                throw new Exception($"Recipe with id {id} not found");
             }
 
-            newInfo = new Recipe();
-            newInfo.Id = id;
-            newInfo.DateCreated = oldInfo.DateCreated;
-            newInfo.DateModified = DateTime.Now;
+            var updatedModel = _mapper.Map<Recipe>(updatedRecipe);
+            updatedModel.Id = id;
 
-            newInfo.RecipeName = recipeToUpdate.RecipeName;
-            newInfo.Description = recipeToUpdate.Description;
-            newInfo.PrepTime = recipeToUpdate.PrepTime;
-            newInfo.CookTime = recipeToUpdate.CookTime;
-
-            newInfo = await _recipeRepository.UpdateRecipeByIdAsync(recipeToUpdate, id);
-            return newInfo;
+            updatedModel = await _recipeRepository.UpdateRecipeByIdAsync(id, updatedModel);
+            return _mapper.Map<RecipeDTO>(updatedRecipe);
         }
 
         public async Task DeleteRecipeById(int id)
         {
-            Recipe recipe = await GetRecipeById(id);
+            RecipeDTO recipe = await GetRecipeById(id);
             
             if (recipe != null) 
             {
                 await _recipeRepository.DeleteRecipeById(id);
+            }
+            else
+            {
+                throw new Exception($"Recipe with id {id} not found");
             }
         }
     }

@@ -332,6 +332,21 @@
         "runtime": {
           "bin/placeholder/RecipeBook.Data.dll": {}
         }
+      },
+      "RecipeBook.DTOs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "RecipeBook.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RecipeBook.DTOs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipeBook.DTOs.dll": {}
+        }
       }
     }
   },
@@ -787,12 +802,18 @@
       "type": "project",
       "path": "../RecipeBook.Data/RecipeBook.Data.csproj",
       "msbuildProject": "../RecipeBook.Data/RecipeBook.Data.csproj"
+    },
+    "RecipeBook.DTOs/1.0.0": {
+      "type": "project",
+      "path": "../RecipeBook.DTOs/RecipeBook.DTOs.csproj",
+      "msbuildProject": "../RecipeBook.DTOs/RecipeBook.DTOs.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 13.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "RecipeBook.DTOs >= 1.0.0",
       "RecipeBook.Data >= 1.0.0"
     ]
   },
@@ -825,6 +846,9 @@
           "projectReferences": {
             "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj": {
               "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj"
+            },
+            "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.DTOs\\RecipeBook.DTOs.csproj": {
+              "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.DTOs\\RecipeBook.DTOs.csproj"
             }
           }
         }

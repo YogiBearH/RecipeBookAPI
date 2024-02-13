@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using RecipeBook.Data.Context;
 using log4net;
 using RecipeBook.Providers.Interfaces;
+using RecipeBook.Providers.Providers;
+using RecipeBook.Data.Interfaces;
+using RecipeBook.Data.Repositories;
 
 namespace RecipeBook
 {
@@ -19,7 +22,8 @@ namespace RecipeBook
             builder.Services.AddDbContext<Ctx>(
                 o => o.UseNpgsql(builder.Configuration.GetConnectionString("RecipeDb")));
 
-            builder.Services.AddScoped<IRecipeProvider, IRecipeProvider>();
+            builder.Services.AddScoped<IRecipeProvider, RecipeProvider>();
+            builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 
             builder.Host.ConfigureLogging(logging =>
             {

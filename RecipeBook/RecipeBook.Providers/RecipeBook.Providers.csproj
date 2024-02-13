@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RecipeBook.Data\RecipeBook.Data.csproj" />
+	<ProjectReference Include="..\RecipeBook.DTOs\RecipeBook.DTOs.csproj" />
   </ItemGroup>
 
 </Project>

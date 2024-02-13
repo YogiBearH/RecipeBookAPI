@@ -33,13 +33,13 @@ namespace RecipeBook.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipesAsync()
+        public async Task<ActionResult<IEnumerable<RecipeDTO>>> GetRecipesAsync()
         {
             return Ok(await _recipeProvider.GetRecipesAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Recipe>> GetRecipeById(int id)
+        public async Task<ActionResult<RecipeDTO>> GetRecipeById(int id)
         {
             var newRecipe = await _recipeProvider.GetRecipeById(id);
 
@@ -47,18 +47,18 @@ namespace RecipeBook.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Recipe>> CreateRecipeAsync([FromBody] Recipe newRecipe)
+        public async Task<ActionResult<RecipeDTO>> CreateRecipeAsync([FromBody] RecipeDTO newRecipe)
         {
 
             return Ok(await _recipeProvider.CreateRecipeAsync(newRecipe));
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Recipe>> UpdateRecipeByIdAsync([FromBody] Recipe recipeToUpdate, int id)
+        public async Task<ActionResult<RecipeDTO>> UpdateRecipeByIdAsync(int id, [FromBody] RecipeDTO updatedRecipe)
         {
             try
             {
-                var updatedRecipe = await _recipeProvider.UpdateRecipeByIdAsync(recipeToUpdate, id);
+                updatedRecipe = await _recipeProvider.UpdateRecipeByIdAsync(id, updatedRecipe);
 
                 // Check if the recipe was found and updated
                 if (updatedRecipe != null)
@@ -78,7 +78,7 @@ namespace RecipeBook.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Recipe>> DeleteRecipeById(int id)
+        public async Task<ActionResult> DeleteRecipeById(int id)
         {
             await _recipeProvider.DeleteRecipeById(id);
             return NoContent();

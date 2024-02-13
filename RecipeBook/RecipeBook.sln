@@ -12,8 +12,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBook.Data", "RecipeBook.Data\RecipeBook.Data.csproj", "{73540F9C-0085-42DE-B09E-6DA99ED09191}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBook.Providers", "RecipeBook.Providers\RecipeBook.Providers.csproj", "{1F8AB6D4-9262-4879-A9BE-85D676FE10D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{07C3F4D6-23FF-486A-8F9A-4D85AA0CAD8D} = {07C3F4D6-23FF-486A-8F9A-4D85AA0CAD8D}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.DTOs", "RecipeBook.DTOs\RecipeBook.DTOs.csproj", "{07C3F4D6-23FF-486A-8F9A-4D85AA0CAD8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBook.DTOs", "RecipeBook.DTOs\RecipeBook.DTOs.csproj", "{07C3F4D6-23FF-486A-8F9A-4D85AA0CAD8D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{73540F9C-0085-42DE-B09E-6DA99ED09191} = {73540F9C-0085-42DE-B09E-6DA99ED09191}
 	EndProjectSection

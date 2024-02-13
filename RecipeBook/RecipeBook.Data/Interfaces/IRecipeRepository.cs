@@ -12,7 +12,7 @@ namespace RecipeBook.Data.Interfaces
         Task<IEnumerable<Recipe>> GetRecipesAsync();
         Task<Recipe> GetRecipeById(int id);
         Task<Recipe> CreateRecipeAsync(Recipe recipe);
-        Task<Recipe> UpdateRecipeByIdAsync(Recipe recipeToUpdate, int id);
-        Task<Recipe> DeleteRecipeById(int id);
+        Task<Recipe> UpdateRecipeByIdAsync(int id, Recipe updatedRecipe);
+        Task DeleteRecipeById(int id);
     }
 }
