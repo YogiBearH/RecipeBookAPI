@@ -1,0 +1,15 @@
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\bin\Debug\net6.0\RecipeBook.DTOs.deps.json
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\bin\Debug\net6.0\RecipeBook.DTOs.dll
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\bin\Debug\net6.0\RecipeBook.DTOs.pdb
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\bin\Debug\net6.0\RecipeBook.Data.dll
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\bin\Debug\net6.0\RecipeBook.Data.pdb
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.csproj.AssemblyReference.cache
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.AssemblyInfoInputs.cache
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.AssemblyInfo.cs
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.csproj.CoreCompileInputs.cache
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.csproj.CopyComplete
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.dll
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\refint\RecipeBook.DTOs.dll
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.pdb
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\ref\RecipeBook.DTOs.dll

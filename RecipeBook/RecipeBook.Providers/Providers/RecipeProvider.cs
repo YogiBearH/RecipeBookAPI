@@ -46,12 +46,18 @@ namespace RecipeBook.Providers.Providers
 
             if (oldInfo == null || oldInfo == default) 
             {
-                throw new Exception();
+                throw new Exception("Recipe not found");
             }
 
+            newInfo = new Recipe();
             newInfo.Id = id;
             newInfo.DateCreated = oldInfo.DateCreated;
             newInfo.DateModified = DateTime.Now;
+
+            newInfo.RecipeName = recipeToUpdate.RecipeName;
+            newInfo.Description = recipeToUpdate.Description;
+            newInfo.PrepTime = recipeToUpdate.PrepTime;
+            newInfo.CookTime = recipeToUpdate.CookTime;
 
             newInfo = await _recipeRepository.UpdateRecipeByIdAsync(recipeToUpdate, id);
             return newInfo;
