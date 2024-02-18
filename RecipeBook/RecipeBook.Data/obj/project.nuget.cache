@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4ue1Nr+BDFWuh6w1mWs+lRZkosk24DqkF78k+dqDMg0bvREJDgimGVTD650cY950cwjTuZjJ3oF64ukZ1SahJg==",
+  "dgSpecHash": "KE8Rr2gJ7L63QjWS46XCNnO0VnQIwvpLNUcQPFuNQ9n/sDRTGoGP4arx6+aKV2o42ozvjhAKhYKZP1KFgQyong==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Data\\RecipeBook.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hieu\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
-    "C:\\Users\\Hieu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.11\\microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",
@@ -31,16 +30,5 @@
     "C:\\Users\\Hieu\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.1 requires AutoMapper (= 12.0.1) but version AutoMapper 13.0.1 was resolved.",
-      "libraryId": "AutoMapper",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

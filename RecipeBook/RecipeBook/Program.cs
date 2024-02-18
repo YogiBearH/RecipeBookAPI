@@ -5,6 +5,8 @@ using RecipeBook.Providers.Interfaces;
 using RecipeBook.Providers.Providers;
 using RecipeBook.Data.Interfaces;
 using RecipeBook.Data.Repositories;
+using RecipeBook.Mapper;
+using AutoMapper;
 
 namespace RecipeBook
 {
@@ -22,18 +24,26 @@ namespace RecipeBook
             builder.Services.AddDbContext<Ctx>(
                 o => o.UseNpgsql(builder.Configuration.GetConnectionString("RecipeDb")));
 
+            builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
             builder.Services.AddScoped<IRecipeProvider, RecipeProvider>();
             builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+            builder.Services.AddScoped<ILogger<RecipeProvider>, Logger<RecipeProvider>>();
+            builder.Services.AddAutoMapper(typeof(MapperProfile));
+
+            builder.Services.AddScoped<ICtx, Ctx>();
 
             builder.Host.ConfigureLogging(logging =>
             {
                 logging.SetMinimumLevel(LogLevel.Trace);
                 logging.AddLog4Net("log4net.config");
             });
-            builder.Logging.AddLog4Net();
+            //builder.Logging.AddLog4Net();
 
             var app = builder.Build();
-            
+
+            /*var mapper = app.Services.GetRequiredService<IMapper>();
+            mapper.ConfigurationProvider.AssertConfigurationIsValid();*/
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {

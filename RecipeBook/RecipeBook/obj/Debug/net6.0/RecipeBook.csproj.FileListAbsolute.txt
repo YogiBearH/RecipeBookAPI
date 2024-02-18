@@ -67,7 +67,6 @@ C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\Properties\log4net.config
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\log4net.config
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\AutoMapper.dll
-C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\RecipeBook.DTOs.dll
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\RecipeBook.Providers.dll
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\bin\Debug\net6.0\RecipeBook.Providers.pdb

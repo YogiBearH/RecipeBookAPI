@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HTzQ1M7Z+q1gm4QQbtT21zqEngXUN/A8zspFbY4Pa0YRBTprt/WXHPCyWUSDCioXg5MNZfR29vui+Uvn40sdUg==",
+  "dgSpecHash": "S3FrLdPY9LnlN37EzsFaOgneu0BVSnSX+Y2uUcl+/yh6nGrwRg+CM+efGOQtS39928TL/EPhB7TS1L/tnADwpw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Providers\\RecipeBook.Providers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hieu\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
-    "C:\\Users\\Hieu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.11\\microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.11\\microsoft.entityframeworkcore.analyzers.7.0.11.nupkg.sha512",
@@ -23,16 +22,5 @@
     "C:\\Users\\Hieu\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.11\\npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.1 requires AutoMapper (= 12.0.1) but version AutoMapper 13.0.1 was resolved.",
-      "libraryId": "AutoMapper",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
