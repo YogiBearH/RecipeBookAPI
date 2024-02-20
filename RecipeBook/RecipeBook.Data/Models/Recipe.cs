@@ -15,11 +15,8 @@ namespace RecipeBook.Data.Models
         public string Description { get; set; }
         public int PrepTime { get; set; }
         public int CookTime { get; set; }
-
-        public List<RecipeStep>? RecipeSteps { get; set; }
         public List<Ingredient>? Ingredients { get; set;}
-        public List<Measurement>? Measurements { get; set; }
-        public List<Quantity>? Quantity { get; set; }
+        public List<RecipeStep>? RecipeSteps { get; set; }
 
         private sealed class ProductEqualityComparer : IEqualityComparer<Recipe>
         {
@@ -39,10 +36,8 @@ namespace RecipeBook.Data.Models
                 hashCode.Add(obj.Description);
                 hashCode.Add(obj.PrepTime);
                 hashCode.Add(obj.CookTime);
-                hashCode.Add(obj.RecipeSteps);
-                hashCode.Add(obj.Quantity);
-                hashCode.Add(obj.Measurements);
                 hashCode.Add(obj.Ingredients);
+                hashCode.Add(obj.RecipeSteps);
                 return hashCode.ToHashCode();
             }
         }

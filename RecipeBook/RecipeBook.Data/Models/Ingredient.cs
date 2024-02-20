@@ -9,5 +9,7 @@ namespace RecipeBook.Data.Models
     public class Ingredient : BaseEntity
     {
         public string IngredientName { get; set; }
+        public float Quantity { get; set; }
+        public string MeasurementName { get; set; }
     }
 }

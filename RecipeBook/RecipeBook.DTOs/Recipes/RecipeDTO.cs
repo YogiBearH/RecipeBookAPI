@@ -18,10 +18,8 @@ namespace RecipeBook.DTOs.Recipes
         public string Description { get; set; }
         public int PrepTime { get; set; }
         public int CookTime { get; set; }
-        public List<RecipeStepDTO>? RecipeSteps { get; set; }
         public List<IngredientDTO>? Ingredients { get; set; }
-        public List<MeasurementDTO>? Measurements { get; set; }
-        public List<QuantityDTO>? Quantities { get; set; }
+        public List<RecipeStepDTO>? RecipeSteps { get; set; }
     }
 
     public class RecipeStepDTO
@@ -36,20 +34,7 @@ namespace RecipeBook.DTOs.Recipes
         public int Id { get; set; }
         [Required]
         public string IngredientName { get; set; }
-    }
-
-    public class MeasurementDTO
-    {
-        public int Id { get; set; }
-        public string? MeasurementName { get; set; }
-    }
-
-    public class QuantityDTO
-    {
-        public int Id { get; set; }
-        public float Amount { get; set; }
-        public int RecipeId { get; set; }
-        public int IngredientId { get; set; }
-        public int MeasurementId { get; set; }
+        public float Quantity { get; set; }
+        public string MeasurementName { get; set; }
     }
 }

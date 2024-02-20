@@ -10,8 +10,6 @@ namespace RecipeBook.Mapper
         {
             CreateMap<Recipe, RecipeDTO>().ReverseMap();
             CreateMap<RecipeStep, RecipeStepDTO>().ReverseMap();
-            CreateMap<Quantity, QuantityDTO>().ReverseMap();
-            CreateMap<Measurement, MeasurementDTO>().ReverseMap();
             CreateMap<Ingredient, IngredientDTO>().ReverseMap();
         }
     }

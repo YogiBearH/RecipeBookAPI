@@ -12,9 +12,7 @@ namespace RecipeBook.Data.Context
     {
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<Quantity> Quantity { get; set; }
         public DbSet<RecipeStep> RecipeSteps { get; set; }
-        public DbSet<Measurement> Measurements { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken());
     }
 }
