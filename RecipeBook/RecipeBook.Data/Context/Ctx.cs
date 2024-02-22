@@ -15,7 +15,9 @@ namespace RecipeBook.Data.Context
         { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.UseSerialColumns();
+            modelBuilder.Entity<Recipe>()
+                .Property(r => r.Id)
+                .UseIdentityColumn();
         }
 
         public DbSet<Recipe> Recipes { get; set;}

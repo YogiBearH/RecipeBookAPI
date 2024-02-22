@@ -17,10 +17,10 @@ namespace RecipeBook.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            NpgsqlModelBuilderExtensions.UseSerialColumns(modelBuilder);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("RecipeBook.Data.Models.Ingredient", b =>
                 {
@@ -28,7 +28,7 @@ namespace RecipeBook.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone");
@@ -40,6 +40,13 @@ namespace RecipeBook.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("MeasurementName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("real");
+
                     b.Property<int?>("RecipeId")
                         .HasColumnType("integer");
 
@@ -50,77 +57,13 @@ namespace RecipeBook.Data.Migrations
                     b.ToTable("Ingredients");
                 });
 
-            modelBuilder.Entity("RecipeBook.Data.Models.Measurement", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("MeasurementName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int?>("RecipeId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RecipeId");
-
-                    b.ToTable("Measurements");
-                });
-
-            modelBuilder.Entity("RecipeBook.Data.Models.Quantity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
-
-                    b.Property<float>("Amount")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("integer")
-                        .HasColumnName("IngredientId");
-
-                    b.Property<int>("MeasurementId")
-                        .HasColumnType("integer")
-                        .HasColumnName("MeasurementId");
-
-                    b.Property<int>("RecipeId")
-                        .HasColumnType("integer")
-                        .HasColumnName("RecipeId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RecipeId");
-
-                    b.ToTable("Quantity");
-                });
-
             modelBuilder.Entity("RecipeBook.Data.Models.Recipe", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CookTime")
                         .HasColumnType("integer");
@@ -153,7 +96,7 @@ namespace RecipeBook.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone");
@@ -185,22 +128,6 @@ namespace RecipeBook.Data.Migrations
                         .HasForeignKey("RecipeId");
                 });
 
-            modelBuilder.Entity("RecipeBook.Data.Models.Measurement", b =>
-                {
-                    b.HasOne("RecipeBook.Data.Models.Recipe", null)
-                        .WithMany("Measurements")
-                        .HasForeignKey("RecipeId");
-                });
-
-            modelBuilder.Entity("RecipeBook.Data.Models.Quantity", b =>
-                {
-                    b.HasOne("RecipeBook.Data.Models.Recipe", null)
-                        .WithMany("Quantity")
-                        .HasForeignKey("RecipeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("RecipeBook.Data.Models.RecipeStep", b =>
                 {
                     b.HasOne("RecipeBook.Data.Models.Recipe", null)
@@ -213,10 +140,6 @@ namespace RecipeBook.Data.Migrations
             modelBuilder.Entity("RecipeBook.Data.Models.Recipe", b =>
                 {
                     b.Navigation("Ingredients");
-
-                    b.Navigation("Measurements");
-
-                    b.Navigation("Quantity");
 
                     b.Navigation("RecipeSteps");
                 });

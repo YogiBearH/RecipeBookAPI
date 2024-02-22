@@ -22,7 +22,7 @@ namespace RecipeBook
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddDbContext<Ctx>(
-                o => o.UseNpgsql(builder.Configuration.GetConnectionString("RecipeDb")));
+                options => options.UseNpgsql(builder.Configuration.GetConnectionString("recipedb")));
 
             builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
             builder.Services.AddScoped<IRecipeProvider, RecipeProvider>();

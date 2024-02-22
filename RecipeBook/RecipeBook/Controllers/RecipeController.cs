@@ -42,7 +42,6 @@ namespace RecipeBook.Controllers
         public async Task<ActionResult<RecipeDTO>> GetRecipeById(int id)
         {
             var newRecipe = await _recipeProvider.GetRecipeById(id);
-
             return newRecipe != null ? Ok(newRecipe) : NotFound();
         }
 

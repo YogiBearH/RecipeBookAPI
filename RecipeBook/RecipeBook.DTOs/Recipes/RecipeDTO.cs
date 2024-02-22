@@ -24,14 +24,12 @@ namespace RecipeBook.DTOs.Recipes
 
     public class RecipeStepDTO
     {
-        public int Id { get; set; }
         public int StepNumber { get; set; }
         public string? StepDescription { get; set; }
     }
 
     public class IngredientDTO
     {
-        public int Id { get; set; }
         [Required]
         public string IngredientName { get; set; }
         public float Quantity { get; set; }

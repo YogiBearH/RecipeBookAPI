@@ -1,0 +1,59 @@
+2024-02-19 23:01:03,308 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7014
+ 2024-02-19 23:01:03,434 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5264
+ 2024-02-19 23:01:03,447 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-02-19 23:01:03,455 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-02-19 23:01:03,458 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\
+ 2024-02-19 23:12:26,036 [13]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (64ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+FROM "Recipes" AS r
+ORDER BY r."Id"
+ 2024-02-19 23:16:10,479 [3]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (38ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?', @p4='?' (DbType = Int32), @p5='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Recipes" ("CookTime", "DateCreated", "DateModified", "Description", "PrepTime", "RecipeName")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+ 2024-02-19 23:16:10,517 [3]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (8ms) [Parameters=[@p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?', @p9='?' (DbType = Int32), @p10='?' (DbType = DateTime), @p11='?' (DbType = DateTime), @p12='?', @p13='?' (DbType = Int32), @p14='?' (DbType = DateTime), @p15='?' (DbType = DateTime), @p16='?', @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p19='?' (DbType = DateTime), @p20='?', @p21='?' (DbType = Int32), @p22='?' (DbType = DateTime), @p23='?' (DbType = DateTime), @p24='?', @p25='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p6, @p7, @p8, @p9)
+RETURNING "Id";
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p10, @p11, @p12, @p13)
+RETURNING "Id";
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p18, @p19, @p20, @p21)
+RETURNING "Id";
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p22, @p23, @p24, @p25)
+RETURNING "Id";
+ 2024-02-19 23:16:44,268 [38]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?', @p4='?' (DbType = Int32), @p5='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Recipes" ("CookTime", "DateCreated", "DateModified", "Description", "PrepTime", "RecipeName")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+ 2024-02-19 23:16:44,277 [40]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (5ms) [Parameters=[@p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?', @p9='?' (DbType = Int32), @p10='?' (DbType = DateTime), @p11='?' (DbType = DateTime), @p12='?', @p13='?' (DbType = Int32), @p14='?' (DbType = DateTime), @p15='?' (DbType = DateTime), @p16='?', @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p19='?' (DbType = DateTime), @p20='?', @p21='?' (DbType = Int32), @p22='?' (DbType = DateTime), @p23='?' (DbType = DateTime), @p24='?', @p25='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p6, @p7, @p8, @p9)
+RETURNING "Id";
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p10, @p11, @p12, @p13)
+RETURNING "Id";
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p14, @p15, @p16, @p17)
+RETURNING "Id";
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p18, @p19, @p20, @p21)
+RETURNING "Id";
+INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "RecipeId")
+VALUES (@p22, @p23, @p24, @p25)
+RETURNING "Id";
+ 2024-02-19 23:48:42,820 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: https://localhost:7014
+ 2024-02-19 23:48:42,902 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:5264
+ 2024-02-19 23:48:42,910 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-02-19 23:48:42,914 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-02-19 23:48:42,917 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\
+ 2024-02-19 23:48:50,576 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+FROM "Recipes" AS r
+ORDER BY r."Id"
+ 
