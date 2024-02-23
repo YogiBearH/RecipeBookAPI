@@ -15,7 +15,8 @@ namespace RecipeBook.Data.Context
         { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Recipe>()
+            modelBuilder
+                .Entity<Recipe>()
                 .Property(r => r.Id)
                 .UseIdentityColumn();
         }

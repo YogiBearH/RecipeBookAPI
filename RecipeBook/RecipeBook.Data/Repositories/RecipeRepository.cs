@@ -57,9 +57,13 @@ namespace RecipeBook.Data.Repositories
         public async Task DeleteRecipeById(int id)
         {
             var recipeToDelete = await _ctx.Recipes
+                .Include(r => r.Ingredients)
+                .Include(r => r.RecipeSteps)
                 .SingleOrDefaultAsync(x => x.Id == id);
             if (recipeToDelete != null)
             {
+                _ctx.Ingredients.RemoveRange(recipeToDelete.Ingredients);
+                _ctx.RecipeSteps.RemoveRange(recipeToDelete.RecipeSteps);
                 _ctx.Recipes.Remove(recipeToDelete);
                 await _ctx.SaveChangesAsync();
             }

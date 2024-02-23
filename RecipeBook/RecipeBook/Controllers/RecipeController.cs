@@ -48,7 +48,6 @@ namespace RecipeBook.Controllers
         [HttpPost]
         public async Task<ActionResult<RecipeDTO>> CreateRecipeAsync([FromBody] RecipeDTO newRecipe)
         {
-
             return Ok(await _recipeProvider.CreateRecipeAsync(newRecipe));
         }
 
