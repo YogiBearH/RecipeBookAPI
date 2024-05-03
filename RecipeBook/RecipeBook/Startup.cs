@@ -38,6 +38,19 @@ namespace RecipeBook
             services.AddAutoMapper(typeof(MapperProfile));
 
             services.AddScoped<ICtx, Ctx>();
+
+            //Enable CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowUI",
+                        options =>
+                        {
+                            options.WithOrigins("http://localhost:5173")
+                                   .AllowAnyHeader()
+                                   .AllowAnyMethod()
+                                   .AllowCredentials();
+                        });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -57,11 +70,13 @@ namespace RecipeBook
                 app.UseHsts();
             }
 
+            app.UseCors("AllowUI");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-            //app.UseAuthorization();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
