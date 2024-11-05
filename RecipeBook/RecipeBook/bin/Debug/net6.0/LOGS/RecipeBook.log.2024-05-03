@@ -1,0 +1,535 @@
+2024-05-03 00:18:06,062 [1] FATAL Microsoft.AspNetCore.Hosting.Diagnostics.ApplicationError [0] - MESSAGE: Application startup exception
+ System.InvalidOperationException: The CORS protocol does not allow specifying a wildcard (any) origin and credentials at the same time. Configure the CORS policy by listing individual origins if credentials needs to be supported.
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.Build()
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy(String name, Action`1 configurePolicy)
+   at RecipeBook.Startup.<>c.<ConfigureServices>b__4_1(CorsOptions options) in C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\Startup.cs:line 45
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsService..ctor(IOptions`1 options, ILoggerFactory loggerFactory)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Span`1& arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2024-05-03 00:18:34,234 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-05-03 00:18:34,282 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-03 00:18:34,287 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-03 00:18:34,289 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-05-03 00:18:51,455 [3]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
+ 2024-05-03 00:18:53,892 [3]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-05-03 00:18:54,588 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (92ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:22:16,260 [5]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (15ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:22:27,986 [25]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:22:31,707 [30]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:23:31,232 [29]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:23:41,885 [38]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:23:54,716 [29]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:24:33,136 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:24:34,846 [5]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:24:36,130 [3]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:25:53,128 [34]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:33:55,779 [12]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:34:04,335 [8]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:35:00,292 [12]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:35:21,166 [33]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:35:34,672 [12]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:35:37,272 [33]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:35:52,846 [33]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:36:08,624 [33]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:36:12,130 [28]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:36:31,627 [28]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:36:58,514 [27]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:37:15,913 [27]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:37:27,626 [27]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:37:33,313 [42]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 00:37:42,399 [43]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:04:08,028 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-05-03 12:04:08,166 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-03 12:04:08,173 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-03 12:04:08,176 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-05-03 12:11:43,259 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-05-03 12:11:43,311 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-03 12:11:43,316 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-03 12:11:43,318 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-05-03 12:28:28,624 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-05-03 12:28:28,691 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-03 12:28:28,694 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-03 12:28:28,696 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-05-03 12:42:32,478 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-05-03 12:42:32,595 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-03 12:42:32,605 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-03 12:42:32,608 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-05-03 12:49:10,811 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-05-03 12:49:10,860 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-03 12:49:10,863 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-03 12:49:10,865 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-05-03 12:49:19,809 [3]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
+ 2024-05-03 12:49:21,974 [3]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-05-03 12:49:22,589 [6]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (80ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:49:34,712 [3]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-05-03 12:49:34,724 [8]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM "Recipes" AS r
+LEFT JOIN "Ingredients" AS i ON r."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON r."Id" = r0."RecipeId"
+ORDER BY r."Id", i."Id"
+ 2024-05-03 12:49:41,473 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:49:41,681 [7] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.? [?] - MESSAGE: An unhandled exception has occurred while executing the request.
+ System.InvalidOperationException: Sequence contains no elements.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at RecipeBook.Data.Repositories.RecipeRepository.GetRecipeById(Int32 id) in C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.Data\Repositories\RecipeRepository.cs:line 34
+   at RecipeBook.Providers.Providers.RecipeProvider.GetRecipeById(Int32 id) in C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.Providers\Providers\RecipeProvider.cs:line 36
+   at RecipeBook.Controllers.RecipeController.GetRecipeById(Int32 id) in C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook\Controllers\RecipeController.cs:line 44
+   at lambda_method5(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2024-05-03 12:49:45,694 [12]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:49:51,364 [6]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:54:29,177 [25]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:54:48,757 [17]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:55:12,405 [33]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:55:24,850 [31]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:55:32,583 [30]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:57:46,889 [5]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 12:58:54,013 [37]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 13:15:33,307 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-05-03 13:15:33,436 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-03 13:15:33,453 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-03 13:15:33,460 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-05-03 13:29:45,680 [12]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
+ 2024-05-03 13:29:48,415 [12]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-05-03 13:29:49,066 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (77ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 13:41:08,175 [19]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-05-03 13:41:08,227 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM "Recipes" AS r
+LEFT JOIN "Ingredients" AS i ON r."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON r."Id" = r0."RecipeId"
+ORDER BY r."Id", i."Id"
+ 2024-05-03 13:41:13,641 [20]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-05-03 14:11:20,036 [8]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 

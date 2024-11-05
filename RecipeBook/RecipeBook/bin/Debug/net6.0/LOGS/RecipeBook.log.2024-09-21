@@ -1,0 +1,36 @@
+2024-09-21 16:29:42,279 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-09-21 16:29:42,640 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-09-21 16:29:42,656 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-09-21 16:29:42,660 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-09-21 16:31:15,085 [9]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
+ 2024-09-21 16:31:26,491 [9]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-09-21 16:31:28,365 [3]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (187ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM "Recipes" AS r
+LEFT JOIN "Ingredients" AS i ON r."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON r."Id" = r0."RecipeId"
+ORDER BY r."Id", i."Id"
+ 2024-09-21 16:31:36,126 [8]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-09-21 16:31:36,351 [9]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (107ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-09-21 16:33:26,135 [19]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 

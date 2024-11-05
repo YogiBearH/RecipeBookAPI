@@ -1,0 +1,25 @@
+2024-06-30 16:33:14,852 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-06-30 16:33:15,063 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-06-30 16:33:15,074 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-06-30 16:33:15,077 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-06-30 16:33:28,800 [8]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
+ 2024-06-30 16:33:30,768 [8]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-06-30 16:33:31,688 [14]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM "Recipes" AS r
+LEFT JOIN "Ingredients" AS i ON r."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON r."Id" = r0."RecipeId"
+ORDER BY r."Id", i."Id"
+ 2024-06-30 16:33:31,688 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (175ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM "Recipes" AS r
+LEFT JOIN "Ingredients" AS i ON r."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON r."Id" = r0."RecipeId"
+ORDER BY r."Id", i."Id"
+ 2024-06-30 17:07:56,631 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (64ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM "Recipes" AS r
+LEFT JOIN "Ingredients" AS i ON r."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON r."Id" = r0."RecipeId"
+ORDER BY r."Id", i."Id"
+ 
