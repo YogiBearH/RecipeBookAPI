@@ -57,6 +57,7 @@ namespace RecipeBook.Controllers
             try
             {
                 updatedRecipe = await _recipeProvider.UpdateRecipeByIdAsync(id, updatedRecipe);
+                Console.WriteLine(updatedRecipe);
 
                 // Check if the recipe was found and updated
                 if (updatedRecipe != null)

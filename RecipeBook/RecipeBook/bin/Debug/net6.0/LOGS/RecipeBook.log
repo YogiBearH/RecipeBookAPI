@@ -1,10 +1,10 @@
-2024-11-04 19:20:23,693 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
- 2024-11-04 19:20:23,824 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
- 2024-11-04 19:20:23,831 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
- 2024-11-04 19:20:23,833 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
- 2024-11-04 19:20:27,922 [8]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
- 2024-11-04 19:20:30,222 [8]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
- 2024-11-04 19:20:30,915 [6]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (78ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+2024-11-11 19:17:02,963 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-11-11 19:17:03,110 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-11-11 19:17:03,115 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-11-11 19:17:03,118 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-11-11 19:17:11,763 [8]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
+ 2024-11-11 19:17:23,643 [8]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-11-11 19:17:24,410 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (110ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
 SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
 FROM (
     SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
@@ -15,7 +15,26 @@ FROM (
 LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
 LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
 ORDER BY t."Id", i."Id"
- 2024-11-04 19:21:35,223 [18]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+ 2024-11-11 19:17:49,015 [7] ERROR RecipeBook.Controllers.RecipeController.MoveNext [59] - MESSAGE: Error updating recipe with id 1: Error mapping types.
+
+Mapping types:
+RecipeDTO -> Recipe
+RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
+
+Type Map configuration:
+RecipeDTO -> Recipe
+RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
+
+Destination Member:
+Ingredients
+
+ 2024-11-11 19:18:11,818 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-11-11 19:18:11,884 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-11-11 19:18:11,891 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-11-11 19:18:11,894 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-11-11 19:18:19,746 [5]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
+ 2024-11-11 19:18:24,020 [5]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-11-11 19:18:24,682 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (110ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
 SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
 FROM (
     SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
@@ -26,7 +45,24 @@ FROM (
 LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
 LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
 ORDER BY t."Id", i."Id"
- 2024-11-04 19:21:35,620 [6]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (44ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?' (DbType = Single), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Single), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime), @p14='?', @p15='?', @p16='?' (DbType = Single), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p19='?' (DbType = DateTime), @p20='?', @p21='?', @p22='?' (DbType = Single), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime), @p25='?' (DbType = DateTime), @p26='?', @p27='?', @p28='?' (DbType = Single), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime), @p31='?' (DbType = DateTime), @p32='?', @p33='?', @p34='?' (DbType = Single), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime), @p37='?' (DbType = DateTime), @p38='?' (DbType = Int32), @p39='?', @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime), @p42='?' (DbType = DateTime), @p43='?' (DbType = Int32), @p44='?', @p45='?' (DbType = Int32), @p46='?' (DbType = DateTime), @p47='?' (DbType = DateTime), @p48='?' (DbType = Int32), @p49='?', @p50='?' (DbType = Int32), @p51='?' (DbType = DateTime), @p52='?' (DbType = DateTime), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Int32), @p56='?' (DbType = DateTime), @p57='?' (DbType = DateTime), @p58='?' (DbType = Int32), @p59='?', @p60='?' (DbType = Int32), @p61='?' (DbType = DateTime), @p62='?' (DbType = DateTime), @p63='?' (DbType = Int32), @p64='?', @p65='?' (DbType = Int32), @p66='?' (DbType = DateTime), @p67='?' (DbType = DateTime), @p68='?' (DbType = Int32), @p69='?', @p70='?' (DbType = Int32), @p71='?' (DbType = DateTime), @p72='?' (DbType = DateTime), @p73='?' (DbType = Int32), @p74='?', @p75='?' (DbType = Int32), @p76='?' (DbType = DateTime), @p77='?' (DbType = DateTime), @p78='?' (DbType = Int32), @p79='?', @p80='?' (DbType = Int32), @p87='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = DateTime), @p83='?' (DbType = DateTime), @p84='?', @p85='?' (DbType = Int32), @p86='?'], CommandType='Text', CommandTimeout='30']
+ 2024-11-11 22:08:59,051 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
+ 2024-11-11 22:08:59,172 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-11-11 22:08:59,177 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-11-11 22:08:59,180 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
+ 2024-11-11 22:09:24,157 [13]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
+ 2024-11-11 22:09:31,408 [13]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2024-11-11 22:09:32,110 [6]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (85ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
+FROM (
+    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
+    FROM "Recipes" AS r
+    WHERE r."Id" = @__id_0
+    LIMIT 2
+) AS t
+LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
+LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
+ORDER BY t."Id", i."Id"
+ 2024-11-11 22:10:52,470 [6]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (53ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?' (DbType = Single), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Single), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime), @p14='?', @p15='?', @p16='?' (DbType = Single), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p19='?' (DbType = DateTime), @p20='?', @p21='?', @p22='?' (DbType = Single), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime), @p25='?' (DbType = DateTime), @p26='?', @p27='?', @p28='?' (DbType = Single), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime), @p31='?' (DbType = DateTime), @p32='?', @p33='?', @p34='?' (DbType = Single), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime), @p37='?' (DbType = DateTime), @p38='?' (DbType = Int32), @p39='?', @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime), @p42='?' (DbType = DateTime), @p43='?' (DbType = Int32), @p44='?', @p45='?' (DbType = Int32), @p46='?' (DbType = DateTime), @p47='?' (DbType = DateTime), @p48='?' (DbType = Int32), @p49='?', @p50='?' (DbType = Int32), @p51='?' (DbType = DateTime), @p52='?' (DbType = DateTime), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Int32), @p56='?' (DbType = DateTime), @p57='?' (DbType = DateTime), @p58='?' (DbType = Int32), @p59='?', @p60='?' (DbType = Int32), @p61='?' (DbType = DateTime), @p62='?' (DbType = DateTime), @p63='?' (DbType = Int32), @p64='?', @p65='?' (DbType = Int32), @p72='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = DateTime), @p68='?' (DbType = DateTime), @p69='?', @p70='?' (DbType = Int32), @p71='?'], CommandType='Text', CommandTimeout='30']
 INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
 VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
 RETURNING "Id";
@@ -63,18 +99,9 @@ RETURNING "Id";
 INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
 VALUES (@p61, @p62, @p63, @p64, @p65)
 RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p66, @p67, @p68, @p69, @p70)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p71, @p72, @p73, @p74, @p75)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p76, @p77, @p78, @p79, @p80)
-RETURNING "Id";
-UPDATE "Recipes" SET "CookTime" = @p81, "DateCreated" = @p82, "DateModified" = @p83, "Description" = @p84, "PrepTime" = @p85, "RecipeName" = @p86
-WHERE "Id" = @p87;
- 2024-11-04 19:22:14,863 [11]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+UPDATE "Recipes" SET "CookTime" = @p66, "DateCreated" = @p67, "DateModified" = @p68, "Description" = @p69, "PrepTime" = @p70, "RecipeName" = @p71
+WHERE "Id" = @p72;
+ 2024-11-11 22:11:20,602 [23]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
 SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
 FROM (
     SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
@@ -85,7 +112,7 @@ FROM (
 LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
 LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
 ORDER BY t."Id", i."Id"
- 2024-11-04 19:22:14,884 [26]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?' (DbType = Single), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Single), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime), @p14='?', @p15='?', @p16='?' (DbType = Single), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p19='?' (DbType = DateTime), @p20='?', @p21='?', @p22='?' (DbType = Single), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime), @p25='?' (DbType = DateTime), @p26='?', @p27='?', @p28='?' (DbType = Single), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime), @p31='?' (DbType = DateTime), @p32='?', @p33='?', @p34='?' (DbType = Single), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime), @p37='?' (DbType = DateTime), @p38='?' (DbType = Int32), @p39='?', @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime), @p42='?' (DbType = DateTime), @p43='?' (DbType = Int32), @p44='?', @p45='?' (DbType = Int32), @p46='?' (DbType = DateTime), @p47='?' (DbType = DateTime), @p48='?' (DbType = Int32), @p49='?', @p50='?' (DbType = Int32), @p51='?' (DbType = DateTime), @p52='?' (DbType = DateTime), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Int32), @p56='?' (DbType = DateTime), @p57='?' (DbType = DateTime), @p58='?' (DbType = Int32), @p59='?', @p60='?' (DbType = Int32), @p61='?' (DbType = DateTime), @p62='?' (DbType = DateTime), @p63='?' (DbType = Int32), @p64='?', @p65='?' (DbType = Int32), @p66='?' (DbType = DateTime), @p67='?' (DbType = DateTime), @p68='?' (DbType = Int32), @p69='?', @p70='?' (DbType = Int32), @p71='?' (DbType = DateTime), @p72='?' (DbType = DateTime), @p73='?' (DbType = Int32), @p74='?', @p75='?' (DbType = Int32), @p76='?' (DbType = DateTime), @p77='?' (DbType = DateTime), @p78='?' (DbType = Int32), @p79='?', @p80='?' (DbType = Int32), @p87='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = DateTime), @p83='?' (DbType = DateTime), @p84='?', @p85='?' (DbType = Int32), @p86='?'], CommandType='Text', CommandTimeout='30']
+ 2024-11-11 22:11:24,137 [23]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?' (DbType = Single), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Single), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime), @p14='?', @p15='?', @p16='?' (DbType = Single), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p19='?' (DbType = DateTime), @p20='?', @p21='?', @p22='?' (DbType = Single), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime), @p25='?' (DbType = DateTime), @p26='?', @p27='?', @p28='?' (DbType = Single), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime), @p31='?' (DbType = DateTime), @p32='?', @p33='?', @p34='?' (DbType = Single), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime), @p37='?' (DbType = DateTime), @p38='?' (DbType = Int32), @p39='?', @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime), @p42='?' (DbType = DateTime), @p43='?' (DbType = Int32), @p44='?', @p45='?' (DbType = Int32), @p46='?' (DbType = DateTime), @p47='?' (DbType = DateTime), @p48='?' (DbType = Int32), @p49='?', @p50='?' (DbType = Int32), @p51='?' (DbType = DateTime), @p52='?' (DbType = DateTime), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Int32), @p56='?' (DbType = DateTime), @p57='?' (DbType = DateTime), @p58='?' (DbType = Int32), @p59='?', @p60='?' (DbType = Int32), @p61='?' (DbType = DateTime), @p62='?' (DbType = DateTime), @p63='?' (DbType = Int32), @p64='?', @p65='?' (DbType = Int32), @p72='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = DateTime), @p68='?' (DbType = DateTime), @p69='?', @p70='?' (DbType = Int32), @p71='?'], CommandType='Text', CommandTimeout='30']
 INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
 VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
 RETURNING "Id";
@@ -122,296 +149,6 @@ RETURNING "Id";
 INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
 VALUES (@p61, @p62, @p63, @p64, @p65)
 RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p66, @p67, @p68, @p69, @p70)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p71, @p72, @p73, @p74, @p75)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p76, @p77, @p78, @p79, @p80)
-RETURNING "Id";
-UPDATE "Recipes" SET "CookTime" = @p81, "DateCreated" = @p82, "DateModified" = @p83, "Description" = @p84, "PrepTime" = @p85, "RecipeName" = @p86
-WHERE "Id" = @p87;
- 2024-11-04 19:22:29,589 [11]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM (
-    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
-    FROM "Recipes" AS r
-    WHERE r."Id" = @__id_0
-    LIMIT 2
-) AS t
-LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
-ORDER BY t."Id", i."Id"
- 2024-11-04 19:22:29,607 [27]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?' (DbType = Single), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Single), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime), @p14='?', @p15='?', @p16='?' (DbType = Single), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p19='?' (DbType = DateTime), @p20='?', @p21='?', @p22='?' (DbType = Single), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime), @p25='?' (DbType = DateTime), @p26='?', @p27='?', @p28='?' (DbType = Single), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime), @p31='?' (DbType = DateTime), @p32='?', @p33='?', @p34='?' (DbType = Single), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime), @p37='?' (DbType = DateTime), @p38='?' (DbType = Int32), @p39='?', @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime), @p42='?' (DbType = DateTime), @p43='?' (DbType = Int32), @p44='?', @p45='?' (DbType = Int32), @p46='?' (DbType = DateTime), @p47='?' (DbType = DateTime), @p48='?' (DbType = Int32), @p49='?', @p50='?' (DbType = Int32), @p51='?' (DbType = DateTime), @p52='?' (DbType = DateTime), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Int32), @p56='?' (DbType = DateTime), @p57='?' (DbType = DateTime), @p58='?' (DbType = Int32), @p59='?', @p60='?' (DbType = Int32), @p61='?' (DbType = DateTime), @p62='?' (DbType = DateTime), @p63='?' (DbType = Int32), @p64='?', @p65='?' (DbType = Int32), @p66='?' (DbType = DateTime), @p67='?' (DbType = DateTime), @p68='?' (DbType = Int32), @p69='?', @p70='?' (DbType = Int32), @p71='?' (DbType = DateTime), @p72='?' (DbType = DateTime), @p73='?' (DbType = Int32), @p74='?', @p75='?' (DbType = Int32), @p76='?' (DbType = DateTime), @p77='?' (DbType = DateTime), @p78='?' (DbType = Int32), @p79='?', @p80='?' (DbType = Int32), @p87='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = DateTime), @p83='?' (DbType = DateTime), @p84='?', @p85='?' (DbType = Int32), @p86='?'], CommandType='Text', CommandTimeout='30']
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p24, @p25, @p26, @p27, @p28, @p29)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p30, @p31, @p32, @p33, @p34, @p35)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p36, @p37, @p38, @p39, @p40)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p41, @p42, @p43, @p44, @p45)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p46, @p47, @p48, @p49, @p50)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p51, @p52, @p53, @p54, @p55)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p56, @p57, @p58, @p59, @p60)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p61, @p62, @p63, @p64, @p65)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p66, @p67, @p68, @p69, @p70)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p71, @p72, @p73, @p74, @p75)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p76, @p77, @p78, @p79, @p80)
-RETURNING "Id";
-UPDATE "Recipes" SET "CookTime" = @p81, "DateCreated" = @p82, "DateModified" = @p83, "Description" = @p84, "PrepTime" = @p85, "RecipeName" = @p86
-WHERE "Id" = @p87;
- 2024-11-04 19:22:57,779 [11]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM (
-    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
-    FROM "Recipes" AS r
-    WHERE r."Id" = @__id_0
-    LIMIT 2
-) AS t
-LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
-ORDER BY t."Id", i."Id"
- 2024-11-04 19:22:57,792 [11]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?' (DbType = Single), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Single), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime), @p14='?', @p15='?', @p16='?' (DbType = Single), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime), @p19='?' (DbType = DateTime), @p20='?', @p21='?', @p22='?' (DbType = Single), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime), @p25='?' (DbType = DateTime), @p26='?', @p27='?', @p28='?' (DbType = Single), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime), @p31='?' (DbType = DateTime), @p32='?', @p33='?', @p34='?' (DbType = Single), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime), @p37='?' (DbType = DateTime), @p38='?' (DbType = Int32), @p39='?', @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime), @p42='?' (DbType = DateTime), @p43='?' (DbType = Int32), @p44='?', @p45='?' (DbType = Int32), @p46='?' (DbType = DateTime), @p47='?' (DbType = DateTime), @p48='?' (DbType = Int32), @p49='?', @p50='?' (DbType = Int32), @p51='?' (DbType = DateTime), @p52='?' (DbType = DateTime), @p53='?' (DbType = Int32), @p54='?', @p55='?' (DbType = Int32), @p56='?' (DbType = DateTime), @p57='?' (DbType = DateTime), @p58='?' (DbType = Int32), @p59='?', @p60='?' (DbType = Int32), @p61='?' (DbType = DateTime), @p62='?' (DbType = DateTime), @p63='?' (DbType = Int32), @p64='?', @p65='?' (DbType = Int32), @p66='?' (DbType = DateTime), @p67='?' (DbType = DateTime), @p68='?' (DbType = Int32), @p69='?', @p70='?' (DbType = Int32), @p71='?' (DbType = DateTime), @p72='?' (DbType = DateTime), @p73='?' (DbType = Int32), @p74='?', @p75='?' (DbType = Int32), @p76='?' (DbType = DateTime), @p77='?' (DbType = DateTime), @p78='?' (DbType = Int32), @p79='?', @p80='?' (DbType = Int32), @p87='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = DateTime), @p83='?' (DbType = DateTime), @p84='?', @p85='?' (DbType = Int32), @p86='?'], CommandType='Text', CommandTimeout='30']
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p24, @p25, @p26, @p27, @p28, @p29)
-RETURNING "Id";
-INSERT INTO "Ingredients" ("DateCreated", "DateModified", "IngredientName", "MeasurementName", "Quantity", "RecipeId")
-VALUES (@p30, @p31, @p32, @p33, @p34, @p35)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p36, @p37, @p38, @p39, @p40)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p41, @p42, @p43, @p44, @p45)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p46, @p47, @p48, @p49, @p50)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p51, @p52, @p53, @p54, @p55)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p56, @p57, @p58, @p59, @p60)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p61, @p62, @p63, @p64, @p65)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p66, @p67, @p68, @p69, @p70)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p71, @p72, @p73, @p74, @p75)
-RETURNING "Id";
-INSERT INTO "RecipeSteps" ("DateCreated", "DateModified", "RecipeId", "StepDescription", "StepNumber")
-VALUES (@p76, @p77, @p78, @p79, @p80)
-RETURNING "Id";
-UPDATE "Recipes" SET "CookTime" = @p81, "DateCreated" = @p82, "DateModified" = @p83, "Description" = @p84, "PrepTime" = @p85, "RecipeName" = @p86
-WHERE "Id" = @p87;
- 2024-11-04 21:03:16,664 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
- 2024-11-04 21:03:16,779 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
- 2024-11-04 21:03:16,785 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
- 2024-11-04 21:03:16,788 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
- 2024-11-04 21:03:30,355 [8]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
- 2024-11-04 21:03:32,038 [8]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
- 2024-11-04 21:03:32,584 [14]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM "Recipes" AS r
-LEFT JOIN "Ingredients" AS i ON r."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON r."Id" = r0."RecipeId"
-ORDER BY r."Id", i."Id"
- 2024-11-04 21:07:49,584 [8]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
- 2024-11-04 21:07:49,619 [14]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM (
-    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
-    FROM "Recipes" AS r
-    WHERE r."Id" = @__id_0
-    LIMIT 2
-) AS t
-LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
-ORDER BY t."Id", i."Id"
- 2024-11-04 21:07:49,759 [14] ERROR RecipeBook.Controllers.RecipeController.MoveNext [59] - MESSAGE: Error updating recipe with id 1: Error mapping types.
-
-Mapping types:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Type Map configuration:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Destination Member:
-Ingredients
-
- 2024-11-04 21:07:58,728 [15]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM (
-    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
-    FROM "Recipes" AS r
-    WHERE r."Id" = @__id_0
-    LIMIT 2
-) AS t
-LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
-ORDER BY t."Id", i."Id"
- 2024-11-04 21:07:58,843 [15] ERROR RecipeBook.Controllers.RecipeController.MoveNext [59] - MESSAGE: Error updating recipe with id 1: Error mapping types.
-
-Mapping types:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Type Map configuration:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Destination Member:
-Ingredients
-
- 2024-11-04 21:08:06,557 [3]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM (
-    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
-    FROM "Recipes" AS r
-    WHERE r."Id" = @__id_0
-    LIMIT 2
-) AS t
-LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
-ORDER BY t."Id", i."Id"
- 2024-11-04 21:08:06,672 [3] ERROR RecipeBook.Controllers.RecipeController.MoveNext [59] - MESSAGE: Error updating recipe with id 1: Error mapping types.
-
-Mapping types:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Type Map configuration:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Destination Member:
-Ingredients
-
- 2024-11-04 21:32:08,391 [1]  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:3000
- 2024-11-04 21:32:08,431 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
- 2024-11-04 21:32:08,434 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
- 2024-11-04 21:32:08,435 [1]  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook
- 2024-11-04 21:32:34,365 [12]  WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.? [?] - MESSAGE: Failed to determine the https port for redirect.
- 2024-11-04 21:33:03,225 [12]  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
- 2024-11-04 21:33:03,614 [7]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (62ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM (
-    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
-    FROM "Recipes" AS r
-    WHERE r."Id" = @__id_0
-    LIMIT 2
-) AS t
-LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
-ORDER BY t."Id", i."Id"
- 2024-11-04 21:33:18,376 [7] ERROR RecipeBook.Controllers.RecipeController.MoveNext [59] - MESSAGE: Error updating recipe with id 1: Error mapping types.
-
-Mapping types:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Type Map configuration:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Destination Member:
-Ingredients
-
- 2024-11-04 21:34:03,869 [16]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM (
-    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
-    FROM "Recipes" AS r
-    WHERE r."Id" = @__id_0
-    LIMIT 2
-) AS t
-LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
-ORDER BY t."Id", i."Id"
- 2024-11-04 21:34:19,800 [16] ERROR RecipeBook.Controllers.RecipeController.MoveNext [59] - MESSAGE: Error updating recipe with id 1: Error mapping types.
-
-Mapping types:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Type Map configuration:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Destination Member:
-Ingredients
-
- 2024-11-04 21:35:09,729 [20]  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT t."Id", t."CookTime", t."DateCreated", t."DateModified", t."Description", t."PrepTime", t."RecipeName", i."Id", i."DateCreated", i."DateModified", i."IngredientName", i."MeasurementName", i."Quantity", i."RecipeId", r0."Id", r0."DateCreated", r0."DateModified", r0."RecipeId", r0."StepDescription", r0."StepNumber"
-FROM (
-    SELECT r."Id", r."CookTime", r."DateCreated", r."DateModified", r."Description", r."PrepTime", r."RecipeName"
-    FROM "Recipes" AS r
-    WHERE r."Id" = @__id_0
-    LIMIT 2
-) AS t
-LEFT JOIN "Ingredients" AS i ON t."Id" = i."RecipeId"
-LEFT JOIN "RecipeSteps" AS r0 ON t."Id" = r0."RecipeId"
-ORDER BY t."Id", i."Id"
- 2024-11-04 21:35:53,467 [20] ERROR RecipeBook.Controllers.RecipeController.MoveNext [59] - MESSAGE: Error updating recipe with id 1: Error mapping types.
-
-Mapping types:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Type Map configuration:
-RecipeDTO -> Recipe
-RecipeBook.DTOs.Recipes.RecipeDTO -> RecipeBook.Data.Models.Recipe
-
-Destination Member:
-Ingredients
-
+UPDATE "Recipes" SET "CookTime" = @p66, "DateCreated" = @p67, "DateModified" = @p68, "Description" = @p69, "PrepTime" = @p70, "RecipeName" = @p71
+WHERE "Id" = @p72;
  
