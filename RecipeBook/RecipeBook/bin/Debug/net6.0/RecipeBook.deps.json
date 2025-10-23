@@ -422,7 +422,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
         },
         "runtime": {
-          "RecipeBook.Data.dll": {}
+          "RecipeBook.Data.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "RecipeBook.DTOs/1.0.0": {
@@ -430,7 +433,10 @@
           "AutoMapper": "13.0.1"
         },
         "runtime": {
-          "RecipeBook.DTOs.dll": {}
+          "RecipeBook.DTOs.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "RecipeBook.Providers/1.0.0": {
@@ -440,7 +446,10 @@
           "RecipeBook.Data": "1.0.0"
         },
         "runtime": {
-          "RecipeBook.Providers.dll": {}
+          "RecipeBook.Providers.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

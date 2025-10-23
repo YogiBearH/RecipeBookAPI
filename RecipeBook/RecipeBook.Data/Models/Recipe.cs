@@ -9,10 +9,8 @@ namespace RecipeBook.Data.Models
 {
     public class Recipe : BaseEntity
     {
-        [Required]
-        public string RecipeName { get; set; }
-        [Required]
-        public string Description { get; set; }
+        public string ?RecipeName { get; set; }
+        public string ?Description { get; set; }
         public int PrepTime { get; set; }
         public int CookTime { get; set; }
         public List<Ingredient>? Ingredients { get; set;}

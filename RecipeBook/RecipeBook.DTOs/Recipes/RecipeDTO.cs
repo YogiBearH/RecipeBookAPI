@@ -31,6 +31,8 @@ namespace RecipeBook.DTOs.Recipes
     public class IngredientDTO
     {
         [Required]
-        public string? Ingredient { get; set; }
+        public string? IngredientName { get; set; }
+        public float Quantity { get; set; }
+        public string? MeasurementName { get; set; }
     }
 }

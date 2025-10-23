@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "S3FrLdPY9LnlN37EzsFaOgneu0BVSnSX+Y2uUcl+/yh6nGrwRg+CM+efGOQtS39928TL/EPhB7TS1L/tnADwpw==",
-  "success": true,
+  "dgSpecHash": "2CnN+j1uwL0=",
+  "success": false,
   "projectFilePath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Providers\\RecipeBook.Providers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hieu\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
@@ -22,5 +22,17 @@
     "C:\\Users\\Hieu\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.11\\npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
     "C:\\Users\\Hieu\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project RecipeBook.Utilities is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Project RecipeBook.Utilities supports: net8.0 (.NETCoreApp,Version=v8.0)",
+      "projectPath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Providers\\RecipeBook.Providers.csproj",
+      "filePath": "C:\\Users\\Hieu\\IdeaProjects\\RecipeBookAPI\\RecipeBook\\RecipeBook.Providers\\RecipeBook.Providers.csproj",
+      "libraryId": "RecipeBook.Utilities",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

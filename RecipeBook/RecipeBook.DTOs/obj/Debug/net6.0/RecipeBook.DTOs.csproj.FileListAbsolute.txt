@@ -10,3 +10,4 @@ C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\ne
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\refint\RecipeBook.DTOs.dll
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.pdb
 C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\ref\RecipeBook.DTOs.dll
+C:\Users\Hieu\IdeaProjects\RecipeBookAPI\RecipeBook\RecipeBook.DTOs\obj\Debug\net6.0\RecipeBook.DTOs.sourcelink.json

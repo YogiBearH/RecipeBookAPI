@@ -1,7 +1,6 @@
 ﻿using RecipeBook.Data.Context;
 using RecipeBook.Data.Interfaces;
 using RecipeBook.Data.Repositories;
-using RecipeBook.Mapper;
 using RecipeBook.Providers.Interfaces;
 using RecipeBook.Providers.Providers;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using log4net;
 using AutoMapper;
+using RecipeBook.Mapper;
 
 namespace RecipeBook
 {
@@ -53,7 +53,7 @@ namespace RecipeBook
             });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Ctx db)
         {
             if (env.IsDevelopment()) 
             {
@@ -71,6 +71,10 @@ namespace RecipeBook
             }
 
             app.UseCors("AllowUI");
+
+            // Resets data on API startup
+            db.Database.ExecuteSqlRaw("DROP SCHEMA public CASCADE; CREATE SCHEMA public;");
+            db.Database.EnsureCreated();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

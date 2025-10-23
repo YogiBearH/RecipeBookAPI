@@ -48,7 +48,6 @@ namespace RecipeBook.Data.Repositories
 
         public async Task<Recipe> UpdateRecipeByIdAsync(int id, Recipe updatedRecipe)
         {
-            updatedRecipe.Id = id;
             _ctx.Recipes.Update(updatedRecipe);
             await _ctx.SaveChangesAsync();
             return updatedRecipe;

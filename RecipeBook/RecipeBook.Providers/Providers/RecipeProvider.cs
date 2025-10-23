@@ -4,11 +4,6 @@ using RecipeBook.Data.Models;
 using RecipeBook.Providers.Interfaces;
 using AutoMapper;
 using RecipeBook.DTOs.Recipes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RecipeBook.Providers.Providers
 {
@@ -46,7 +41,7 @@ namespace RecipeBook.Providers.Providers
 
         public async Task<RecipeDTO> UpdateRecipeByIdAsync(int id, RecipeDTO updatedRecipe)
         {
-            Recipe oldRecipe = await _recipeRepository.GetRecipeById(id);
+            var oldRecipe = await _recipeRepository.GetRecipeById(id);
 
             if (oldRecipe == null) 
             {
@@ -54,10 +49,13 @@ namespace RecipeBook.Providers.Providers
             }
 
             var updatedModel = _mapper.Map<Recipe>(updatedRecipe);
-            updatedModel.Id = id;
 
-            updatedModel = await _recipeRepository.UpdateRecipeByIdAsync(id, updatedModel);
-            return _mapper.Map<RecipeDTO>(updatedRecipe);
+            //Checking to see if there are duplicate steps
+            
+
+            await _recipeRepository.UpdateRecipeByIdAsync(id, updatedModel);
+
+            return updatedRecipe;
         }
 
         public async Task DeleteRecipeById(int id)
