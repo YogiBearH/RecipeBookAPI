@@ -33,6 +33,7 @@ namespace RecipeBook
                 options => options.UseNpgsql(Configuration.GetConnectionString("recipedb")));
 
             services.AddScoped<IRecipeRepository, RecipeRepository>();
+            services.AddScoped<IRecipeStepRepository, RecipeStepRepository>();
             services.AddScoped<IRecipeProvider, RecipeProvider>();
             services.AddScoped<ILogger<RecipeProvider>, Logger<RecipeProvider>>();
             services.AddAutoMapper(typeof(MapperProfile));

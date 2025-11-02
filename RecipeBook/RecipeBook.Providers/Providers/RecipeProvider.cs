@@ -11,12 +11,14 @@ namespace RecipeBook.Providers.Providers
     {
         private readonly ILogger<RecipeProvider> _logger;
         private readonly IRecipeRepository _recipeRepository;
+        private readonly IRecipeStepRepository _recipeStepRepository;
         private readonly IMapper _mapper;
 
-        public RecipeProvider(IRecipeRepository recipeRepository, ILogger<RecipeProvider> logger, IMapper mapper)
+        public RecipeProvider(IRecipeRepository recipeRepository, IRecipeStepRepository recipeStepRepository, ILogger<RecipeProvider> logger, IMapper mapper)
         {
             _logger = logger;
             _recipeRepository = recipeRepository;
+            _recipeStepRepository = recipeStepRepository;
             _mapper = mapper;
         }
 
@@ -43,19 +45,43 @@ namespace RecipeBook.Providers.Providers
         {
             var oldRecipe = await _recipeRepository.GetRecipeById(id);
 
-            if (oldRecipe == null) 
+            if (oldRecipe == null)
             {
                 throw new Exception($"Recipe with id {id} not found");
             }
 
             var updatedModel = _mapper.Map<Recipe>(updatedRecipe);
 
-            //Checking to see if there are duplicate steps
-            
+            //Checking number of Recipe Steps of each
+            int oldRecipeStepCount = oldRecipe.RecipeSteps.Count;
+            int updatedModelCount = updatedRecipe.RecipeSteps.Count;
 
-            await _recipeRepository.UpdateRecipeByIdAsync(id, updatedModel);
+            /* Seeing if the number of steps matches, if so, grab old id for new id. If old 
+             * steps are higher, delete extras. If old steps lower, leave alone for it to 
+             * create its own id */
+            if (oldRecipeStepCount == updatedModelCount)
+            {
+                for (int i = 0; i < updatedModelCount; i++)
+                {
+                    updatedModel.RecipeSteps[i].Id = oldRecipe.RecipeSteps[i].Id;
+                }
+            }
+            else if (oldRecipeStepCount > updatedModelCount)
+            {
+                int newCount = oldRecipeStepCount - updatedModelCount;
+                for (int i = 0; i < updatedModelCount; i++)
+                {
+                    updatedModel.RecipeSteps[i].Id = oldRecipe.RecipeSteps[i].Id;
+                }
+                for (int j = updatedModelCount; j < oldRecipeStepCount; j++)
+                {
+                    await _recipeStepRepository.DeleteRecipeStepById(oldRecipe.RecipeSteps[j].Id);
+                }
+            }
 
-            return updatedRecipe;
+                await _recipeRepository.UpdateRecipeByIdAsync(id, updatedModel);
+
+                return updatedRecipe;
         }
 
         public async Task DeleteRecipeById(int id)
