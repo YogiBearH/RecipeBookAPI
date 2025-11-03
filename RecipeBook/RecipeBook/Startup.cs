@@ -34,6 +34,7 @@ namespace RecipeBook
 
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<IRecipeStepRepository, RecipeStepRepository>();
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
             services.AddScoped<IRecipeProvider, RecipeProvider>();
             services.AddScoped<ILogger<RecipeProvider>, Logger<RecipeProvider>>();
             services.AddAutoMapper(typeof(MapperProfile));

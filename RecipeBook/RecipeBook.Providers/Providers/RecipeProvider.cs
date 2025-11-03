@@ -13,12 +13,19 @@ namespace RecipeBook.Providers.Providers
         private readonly IRecipeRepository _recipeRepository;
         private readonly IRecipeStepRepository _recipeStepRepository;
         private readonly IMapper _mapper;
+        private readonly IIngredientRepository _ingredientRepository;
 
-        public RecipeProvider(IRecipeRepository recipeRepository, IRecipeStepRepository recipeStepRepository, ILogger<RecipeProvider> logger, IMapper mapper)
+        public RecipeProvider
+            (IRecipeRepository recipeRepository,
+            IRecipeStepRepository recipeStepRepository, 
+            IIngredientRepository ingredientRepository,
+            ILogger<RecipeProvider> logger,
+            IMapper mapper)
         {
             _logger = logger;
             _recipeRepository = recipeRepository;
             _recipeStepRepository = recipeStepRepository;
+            _ingredientRepository = ingredientRepository;
             _mapper = mapper;
         }
 
@@ -79,9 +86,39 @@ namespace RecipeBook.Providers.Providers
                 }
             }
 
-                await _recipeRepository.UpdateRecipeByIdAsync(id, updatedModel);
+            int oldIngredientCount = oldRecipe.Ingredients.Count;
+            int updatedIngredientCount = updatedRecipe.Ingredients.Count;
 
-                return updatedRecipe;
+            if (oldIngredientCount == updatedIngredientCount)
+            {
+                for (int i = 0; i < updatedIngredientCount; i++)
+                {
+                    updatedModel.Ingredients[i].Id = oldRecipe.Ingredients[i].Id;
+                }
+            }
+            else if (oldIngredientCount < updatedIngredientCount)
+            {
+                for (int i = 0; i < oldIngredientCount; i++)
+                {
+                    updatedModel.Ingredients[i].Id = oldRecipe.Ingredients[i].Id;
+                }
+            }
+            else if (oldIngredientCount > updatedIngredientCount)
+            {
+                int newCount = oldIngredientCount - updatedIngredientCount;
+                for (int i = 0; i < updatedIngredientCount; i++)
+                {
+                    updatedModel.Ingredients[i].Id = oldRecipe.Ingredients[i].Id;
+                }
+                for (int j = updatedIngredientCount; j < oldIngredientCount; j++)
+                {
+                    await _ingredientRepository.DeleteIngredientById(oldRecipe.Ingredients[j].Id);
+                }
+            }
+
+            await _recipeRepository.UpdateRecipeByIdAsync(id, updatedModel);
+
+            return updatedRecipe;
         }
 
         public async Task DeleteRecipeById(int id)
