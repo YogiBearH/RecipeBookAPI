@@ -33,8 +33,8 @@ namespace RecipeBook.Data.Repositories
         {
             return await _ctx.Recipes
                 .AsNoTracking()
-                .Include(r => r.Ingredients)
-                .Include(r => r.RecipeSteps)
+                .Include(r => r.Ingredients.OrderBy(i => i.IngredientName))
+                .Include(r => r.RecipeSteps.OrderBy(s => s.StepNumber))
                 .Where(x => x.Id == id)
                 .SingleAsync();
         }

@@ -75,14 +75,23 @@ namespace RecipeBook.Providers.Providers
             }
             else if (oldRecipeStepCount > updatedModelCount)
             {
-                int newCount = oldRecipeStepCount - updatedModelCount;
+                //Number of steps to update is the number of updated steps since it is less than old steps
                 for (int i = 0; i < updatedModelCount; i++)
                 {
                     updatedModel.RecipeSteps[i].Id = oldRecipe.RecipeSteps[i].Id;
                 }
+                //Delete extra steps from old recipe. Starts from where updated steps end to old steps end
                 for (int j = updatedModelCount; j < oldRecipeStepCount; j++)
                 {
                     await _recipeStepRepository.DeleteRecipeStepById(oldRecipe.RecipeSteps[j].Id);
+                }
+            }
+            else
+            {
+                //Old steps are less than updated steps, so only update the old steps. Let new steps create new ids
+                for (int i = 0; i < oldRecipeStepCount; i++)
+                {
+                    updatedModel.RecipeSteps[i].Id = oldRecipe.RecipeSteps[i].Id;
                 }
             }
 
@@ -96,23 +105,25 @@ namespace RecipeBook.Providers.Providers
                     updatedModel.Ingredients[i].Id = oldRecipe.Ingredients[i].Id;
                 }
             }
-            else if (oldIngredientCount < updatedIngredientCount)
-            {
-                for (int i = 0; i < oldIngredientCount; i++)
-                {
-                    updatedModel.Ingredients[i].Id = oldRecipe.Ingredients[i].Id;
-                }
-            }
             else if (oldIngredientCount > updatedIngredientCount)
             {
-                int newCount = oldIngredientCount - updatedIngredientCount;
+                //Number of ingredients to update is the number of updated ingredients since it is less than old ingredients
                 for (int i = 0; i < updatedIngredientCount; i++)
                 {
                     updatedModel.Ingredients[i].Id = oldRecipe.Ingredients[i].Id;
                 }
+                //Delete extra ingredients from old recipe. Starts from where updated ingredients end to old ingredients end
                 for (int j = updatedIngredientCount; j < oldIngredientCount; j++)
                 {
                     await _ingredientRepository.DeleteIngredientById(oldRecipe.Ingredients[j].Id);
+                }
+            }
+            else
+            {
+                //Old ingredients are less than updated ingredients, so only update the old ingredients. Let new ingredients create new ids
+                for (int i = 0; i < oldIngredientCount; i++)
+                {
+                    updatedModel.Ingredients[i].Id = oldRecipe.Ingredients[i].Id;
                 }
             }
 
