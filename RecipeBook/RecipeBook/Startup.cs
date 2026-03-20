@@ -1,16 +1,18 @@
-﻿using RecipeBook.Data.Context;
-using RecipeBook.Data.Interfaces;
-using RecipeBook.Data.Repositories;
-using RecipeBook.Providers.Interfaces;
-using RecipeBook.Providers.Providers;
+﻿using AutoMapper;
+using log4net;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using log4net;
-using AutoMapper;
+using RecipeBook.Data.Context;
+using RecipeBook.Data.Interfaces;
+using RecipeBook.Data.Repositories;
 using RecipeBook.Mapper;
+using RecipeBook.Providers.Interfaces;
+using RecipeBook.Providers.Providers;
+using RecipeBook.GlobalExceptionHandler;
 
 namespace RecipeBook
 {
@@ -26,12 +28,17 @@ namespace RecipeBook
         public void ConfigureServices(IServiceCollection services)
         {
             //Adds services to the container
+            services.AddSingleton<ILog>(provider =>
+            {
+                return LogManager.GetLogger(typeof(ExceptionHandlerMiddleware));
+            });
             services.AddControllersWithViews();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddDbContext<Ctx>(
                 options => options.UseNpgsql(Configuration.GetConnectionString("recipedb")));
-
+            services.AddProblemDetails();
+            services.AddExceptionHandler<GlobalExceptionHandler>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<IRecipeStepRepository, RecipeStepRepository>();
             services.AddScoped<IIngredientRepository, IngredientRepository>();
@@ -59,7 +66,6 @@ namespace RecipeBook
         {
             if (env.IsDevelopment()) 
             {
-                app.UseDeveloperExceptionPage();
                 app.UseSwaggerUI();
                 app.UseSwaggerUI(options =>
                 {
@@ -72,17 +78,25 @@ namespace RecipeBook
                 app.UseHsts();
             }
 
+            app.UseExceptionHandler();
+            app.UseRouting();
+            app.UseAuthorization();
             app.UseCors("AllowUI");
 
             // Resets data on API startup
-            db.Database.ExecuteSqlRaw("DROP SCHEMA public CASCADE; CREATE SCHEMA public;");
-            db.Database.EnsureCreated();
+            try
+            { 
+                db.Database.ExecuteSqlRaw("DROP SCHEMA public CASCADE; CREATE SCHEMA public;");
+                db.Database.EnsureCreated();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("DB RESET ERROR: " + ex.Message);
+            }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
-            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

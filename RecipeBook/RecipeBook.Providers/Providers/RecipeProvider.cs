@@ -4,6 +4,7 @@ using RecipeBook.Data.Models;
 using RecipeBook.Providers.Interfaces;
 using AutoMapper;
 using RecipeBook.DTOs.Recipes;
+using RecipeBook.GlobalExceptionHandler.Exceptions;
 
 namespace RecipeBook.Providers.Providers
 {
@@ -54,7 +55,7 @@ namespace RecipeBook.Providers.Providers
 
             if (oldRecipe == null)
             {
-                throw new Exception($"Recipe with id {id} not found");
+                throw new NotFoundException($"Recipe with id {id} not found");
             }
 
             var updatedModel = _mapper.Map<Recipe>(updatedRecipe);

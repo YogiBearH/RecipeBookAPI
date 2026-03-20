@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RecipeBook.Data\RecipeBook.Data.csproj" />
+    <ProjectReference Include="..\RecipeBook.Providers\RecipeBook.Providers.csproj" />
+    <ProjectReference Include="..\RecipeBook\RecipeBook.csproj" />
+  </ItemGroup>
+
+</Project>
